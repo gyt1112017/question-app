@@ -1,6 +1,6 @@
 var client;
 
-
+//Use document.getElementById to get the first bit of text data from the form
 function startDataUpload() {
 alert ("start data upload");
 var question = document.getElementById("question").value;
@@ -9,14 +9,18 @@ var answer_2 = document.getElementById("answer_2").value;
 var answer_3 = document.getElementById("answer_3").value;
 var answer_4 = document.getElementById("answer_4").value;
 var correct_answer = document.getElementById("correct_answer").value;
+// now get the geometry values
 var latitude = document.getElementById("latitude").value;
 var longitude = document.getElementById("longitude").value;
-//show a pop up alert
-alert(question + " "+ answer_1 + " "+answer_2 + " "+ answer_3 + " "+ answer_4 + " "+ latitude + " "+longitude + " "+ correct_answer);
 var postString = "question="+question+"&answer_1="+answer_1+"&answer_2="+answer_2+"&answer_3="+answer_3+"&answer_4="+answer_4+"&correct_answer="+correct_answer; 
 postString = postString + "&latitude=" + latitude + "&longitude=" + longitude;
-processData(postString);}
+//show a pop up alert
+alert(question + " "+ answer_1 + " "+answer_2 + " "+ answer_3 + " "+ answer_4 + " "+ latitude + " "+longitude + " "+ correct_answer);
 
+processData(postString);
+}
+
+//Add an AJAX call and response method to code in uploadData.js
 function processData(postString) {
 client = new XMLHttpRequest();
 client.open('POST','http://developer.cege.ucl.ac.uk:30273/uploadData',true);
